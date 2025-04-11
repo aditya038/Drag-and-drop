@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-export const Sidebar = ({sidebar, handleSidebar}) => {
+export const Sidebar = ({ sidebar, handleSidebar, onDragStart }) => {
   const sidebarRef = useRef();
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export const Sidebar = ({sidebar, handleSidebar}) => {
   }, [sidebar, handleSidebar]);
 
   return (
-    <>
+    <div className="flex-1">
       <button
         type="button"
         className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
@@ -47,24 +47,23 @@ export const Sidebar = ({sidebar, handleSidebar}) => {
       <aside
         ref={sidebarRef}
         className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${
-          sidebar ? 'translate-x-0' : '-translate-x-full'
+          sidebar ? "translate-x-0" : "-translate-x-full"
         } sm:translate-x-0`}
         aria-label="Sidebar"
       >
         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
           <ul className="font-bold border-b border-gray-200 dark:border-gray-700">
             <li>
-              <div
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white group"
-              >
+              <div className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white group">
                 <span className="text-lg">Elements</span>
               </div>
             </li>
           </ul>
           <ul className="mt-4 space-y-2 font-medium">
             <li>
-              <a
-                href="#"
+              <div
+                draggable="true"
+                onDragStart={(e) => onDragStart(e, "heading")}
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <svg
@@ -79,11 +78,12 @@ export const Sidebar = ({sidebar, handleSidebar}) => {
                   />
                 </svg>
                 <span className="flex-1 ms-3 whitespace-nowrap">Heading</span>
-              </a>
+              </div>
             </li>
             <li>
-              <a
-                href="#"
+              <div
+                draggable="true"
+                onDragStart={(e) => onDragStart(e, "paragraph")}
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <svg
@@ -98,11 +98,12 @@ export const Sidebar = ({sidebar, handleSidebar}) => {
                   />
                 </svg>
                 <span className="flex-1 ms-3 whitespace-nowrap">Paragraph</span>
-              </a>
+              </div>
             </li>
             <li>
-              <a
-                href="#"
+              <div
+                draggable="true"
+                onDragStart={(e) => onDragStart(e, "button")}
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <svg
@@ -124,7 +125,7 @@ export const Sidebar = ({sidebar, handleSidebar}) => {
                   />
                 </svg>
                 <span className="flex-1 ms-3 whitespace-nowrap">Button</span>
-              </a>
+              </div>
             </li>
             <li>
               <a
@@ -205,6 +206,6 @@ export const Sidebar = ({sidebar, handleSidebar}) => {
           </ul>
         </div>
       </aside>
-    </>
+    </div>
   );
 };
