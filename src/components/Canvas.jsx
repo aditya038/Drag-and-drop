@@ -3,7 +3,7 @@ import { Heading } from "./Heading";
 import { Paragraph } from "./Paragraph";
 import { Button } from "./Button";
 
-export const Canvas = ({ onDrop, canvasComponents }) => {
+export const Canvas = ({ onDrop, canvasComponents, onDeleteComponent }) => {
   function handleDrop(e) {
     e.preventDefault();
     const type = e.dataTransfer.getData("componentType");
@@ -23,7 +23,7 @@ export const Canvas = ({ onDrop, canvasComponents }) => {
       <div className="font-bold text-xl ml-5 p-2 text-center">Drop components here....</div>
       <div className="ml-5">
         {canvasComponents.map((cc) => {
-          if (cc.componentType === "heading") return <Heading key={cc.id} />;
+          if (cc.componentType === "heading") return <Heading key={cc.id} id={cc.id} onDeleteComponent={onDeleteComponent}/>;
           if (cc.componentType === "paragraph") return <Paragraph key={cc.id} />;
           if (cc.componentType === "button") return <Button key={cc.id} />;
           return null;
