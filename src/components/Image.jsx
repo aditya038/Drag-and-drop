@@ -32,7 +32,7 @@ export const Image = ({ id, onDeleteComponent }) => {
         </button>
       </div>
       <p className="text-lg m-2 font-bold">Preview of Image</p>
-      <div className="w-xs border">
+      <div className="w-xs border mb-5">
         <img src={image} className="p-2"/>
       </div>
     </>
