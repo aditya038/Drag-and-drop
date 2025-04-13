@@ -11,7 +11,7 @@ export const Button = ({ id, onDeleteComponent }) => {
         <button
           type="button"
           onClick={() => onDeleteComponent(id)}
-          className="text-white bg-red-700 hover:bg-red-800 font-large rounded-full text-lg px-2 text-center ml-4"
+          className="text-white bg-red-700 hover:bg-red-800 font-bold rounded-full text-lg px-2 text-center ml-4"
         >
           X
         </button>
