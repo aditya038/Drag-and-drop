@@ -2,6 +2,7 @@ import React from "react";
 import { Heading } from "./Heading";
 import { Paragraph } from "./Paragraph";
 import { Button } from "./Button";
+import { Image } from "./Image";
 
 export const Canvas = ({ onDrop, canvasComponents, onDeleteComponent }) => {
   function handleDrop(e) {
@@ -26,6 +27,7 @@ export const Canvas = ({ onDrop, canvasComponents, onDeleteComponent }) => {
           if (cc.componentType === "heading") return <Heading key={cc.id} id={cc.id} onDeleteComponent={onDeleteComponent}/>;
           if (cc.componentType === "paragraph") return <Paragraph key={cc.id} id={cc.id} onDeleteComponent={onDeleteComponent}/>;
           if (cc.componentType === "button") return <Button key={cc.id} id={cc.id} onDeleteComponent={onDeleteComponent}/>;
+          if (cc.componentType === "image") return <Image key={cc.id} id={cc.id} onDeleteComponent={onDeleteComponent}/>;
           return null;
         })}
       </div>
