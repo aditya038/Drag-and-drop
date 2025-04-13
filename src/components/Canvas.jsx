@@ -17,9 +17,7 @@ export const Canvas = ({ onDrop, canvasComponents, onDeleteComponent }) => {
     <div
       onDrop={handleDrop}
       onDragOver={(e) => e.preventDefault()}
-      className="flex-1 h-screen"
-      id="canvas"
-      style={{ backgroundColor: "#CCCCCC" }}
+      className="col-span-3 h-screen bg-gray-300"
     >
       <div className="font-bold text-xl ml-5 p-2 text-center">Drop components here....</div>
       <div className="ml-5">

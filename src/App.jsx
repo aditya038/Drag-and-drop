@@ -25,7 +25,7 @@ function App() {
   }
 
   return (
-    <div className='flex'>
+    <div className='grid grid-cols-4'>
       <Sidebar sidebar={sidebar} handleSidebar={handleSidebar} onDragStart={handleOnDrag}/>
       <Canvas onDrop={handleOnDrop} canvasComponents={canvasComponents} onDeleteComponent={handleDeleteComponent}/>
     </div>    
