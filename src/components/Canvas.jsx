@@ -25,7 +25,7 @@ export const Canvas = ({ onDrop, canvasComponents, onDeleteComponent }) => {
         {canvasComponents.map((cc) => {
           if (cc.componentType === "heading") return <Heading key={cc.id} id={cc.id} onDeleteComponent={onDeleteComponent}/>;
           if (cc.componentType === "paragraph") return <Paragraph key={cc.id} id={cc.id} onDeleteComponent={onDeleteComponent}/>;
-          if (cc.componentType === "button") return <Button key={cc.id} />;
+          if (cc.componentType === "button") return <Button key={cc.id} id={cc.id} onDeleteComponent={onDeleteComponent}/>;
           return null;
         })}
       </div>
