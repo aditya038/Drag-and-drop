@@ -1,5 +1,4 @@
 import './App.css'
-import { v4 as uuidv4 } from 'uuid';
 import { useState } from "react";
 import { Sidebar } from './components/Sidebar'
 import { Canvas } from './components/Canvas';
@@ -16,8 +15,8 @@ function App() {
     e.dataTransfer.setData("componentType", componentType);
   }
 
-  function handleOnDrop(componentType) {
-    setCanvasComponents([...canvasComponents, { id: uuidv4(), componentType: componentType }])
+  function handleOnDrop(component) {
+    setCanvasComponents([...canvasComponents, component])
   }
 
   function handleDeleteComponent(id) {

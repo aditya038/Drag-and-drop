@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-export const Heading = ({ id, onDeleteComponent }) => {
+export const Heading = ({ element, onDeleteComponent }) => {
   const headingRef = useRef(null);
   const [text, setText] = useState("Add Heading");
 
@@ -16,7 +16,14 @@ export const Heading = ({ id, onDeleteComponent }) => {
   };
 
   return (
-    <div className="flex border-2 m-5 p-3">
+    <div
+      className="w-2xl flex border-2 m-5 p-3"
+      style={{
+        position: "absolute",
+        left: element.x,
+        top: element.y,
+      }}
+    >
       <h1
         ref={headingRef}
         contentEditable
@@ -26,8 +33,8 @@ export const Heading = ({ id, onDeleteComponent }) => {
       />
       <button
         type="button"
-        onClick={() => onDeleteComponent(id)}
-        className="text-white bg-red-700 hover:bg-red-800 font-bold rounded-full text-lg px-3 text-center"
+        onClick={() => onDeleteComponent(element.id)}
+        className="text-white bg-red-700 hover:bg-red-800 font-bold rounded-full text-lg px-3 text-center ml-5"
       >
         X
       </button>
